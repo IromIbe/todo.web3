@@ -1,0 +1,59 @@
+<script
+  src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+  type="application/javascript"
+></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./index.css" rel="stylesheet" />
+    <title>Web3 Todo</title>
+  </head>
+  <body>
+    <div class="heading">
+      <h1>Todo List</h1>
+    </div>
+    <div class="todos">
+      <div class="clear-all">
+        <button class="clear">Clear All</button>
+      </div>
+      <div class="add">
+        <input
+          type="text"
+          class="add-task"
+          placeholder="What would like to do today?"
+          value=""
+        />
+        <span class="add-btn">Add</span>
+      </div>
+
+      <ul class="tasks">
+        <li class="active">
+          <div>
+            <input type="radio" />
+            Connect smart contract to Frontend
+          </div>
+
+          <div class="close">
+            <button class="edit">Edit</button>
+            <span>X</span>
+          </div>
+        </li>
+        <li class="active">
+          <div>
+            <input type="radio" />
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
+            commodi.
+          </div>
+
+          <div class="close">
+            <button>Edit</button>
+            <span>X</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
