@@ -1,9 +1,5 @@
-<script
-  src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
-  type="application/javascript"
-></script>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,38 +18,37 @@
         <input
           type="text"
           class="add-task"
-          placeholder="What would like to do today?"
+          placeholder="What would you like to do today?"
           value=""
         />
-        <span class="add-btn">Add</span>
+        <button class="add-btn">Add</button>
       </div>
 
       <ul class="tasks">
-        <li class="active">
-          <div>
-            <input type="radio" />
-            Connect smart contract to Frontend
-          </div>
-
-          <div class="close">
-            <button class="edit">Edit</button>
-            <span>X</span>
-          </div>
-        </li>
-        <li class="active">
-          <div>
-            <input type="radio" />
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-            commodi.
-          </div>
-
-          <div class="close">
-            <button>Edit</button>
-            <span>X</span>
-          </div>
-        </li>
+       
       </ul>
     </div>
+
+    <!-- Modal Section -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <h2>Edit Task</h2>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="3"
+          class="edit-area"
+        ></textarea>
+        <div class="exit">
+          <button class="make-changes">Edit</button>
+        <button class="exit-btn">Exit</button>
+        </div>
+        
+      </div>
+    </div>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
     <script src="./index.js"></script>
+    <!-- <script src="./index.js"></script> -->
   </body>
 </html>

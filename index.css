@@ -1,9 +1,11 @@
+/* Reset default styles */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+/* Body styles */
 body {
   background-color: #0b1416;
   display: flex;
@@ -11,8 +13,11 @@ body {
   justify-content: center;
   align-items: center;
   padding-top: 15vh;
+  overflow-x: hidden;
+  width: 100vw;
 }
 
+/* Title and heading styles */
 .title,
 h1 {
   color: #e3e6d6;
@@ -20,11 +25,14 @@ h1 {
   font-weight: 700;
 }
 
+/* Todos container styles */
 .todos {
   margin-top: 60px;
   width: 50%;
+  max-width: 90%;
 }
 
+/* Clear All button styles */
 .clear-all {
   display: flex;
   justify-content: flex-end;
@@ -33,23 +41,31 @@ h1 {
 
 .clear-all > button {
   font-size: 15px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   padding: 10px 20px;
   background: transparent;
   border: 1px solid #e3e6d6;
   color: #e3e6d6;
   border-radius: 8px;
 }
+
 .clear-all > button:hover {
   background-color: #223237;
 }
 
+.clear-all > button:disabled:hover {
+  background-color: transparent;
+}
+
+/* Add task input and button styles */
 .add {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   border-radius: 14px;
   padding: 20px;
   background-color: #223237;
+  border: 1px solid rgb(3, 92, 3);
 }
 
 .add > input {
@@ -62,13 +78,21 @@ h1 {
   width: 90%;
 }
 
-.add,
-span {
+.add > button {
   cursor: pointer;
   font-size: 16px;
-  color: #4e5557;
+  color: #e3e6d6;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin: 0 20px;
 }
 
+.add > button:disabled {
+  color: gray;
+}
+
+/* Task list styles */
 .tasks {
   margin-top: 20px;
   list-style-type: none;
@@ -84,6 +108,11 @@ span {
   justify-content: space-between;
   align-items: center;
 }
+
+.close {
+  display: flex;
+}
+
 .close > button {
   transition: all 0.1s ease-in-out;
   outline: none;
@@ -95,8 +124,34 @@ span {
   margin: 0 10px;
 }
 
+.close > .delete:hover {
+  color: red;
+}
+
+.close > .delete:disabled {
+  color: gray;
+  border: 1px solid gray;
+  background-color: transparent;
+}
+
 .close > button:hover {
   background-color: #223237;
+  cursor: pointer;
+}
+
+.close > span {
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.edit:disabled {
+  border: 1px solid gray;
+  color: gray;
+}
+
+.edit:disabled:hover {
+  background-color: unset;
+  cursor: default;
 }
 
 .close > span:hover {
@@ -109,23 +164,153 @@ span {
   color: #e3e6d6;
 }
 
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.content > .tickComplete:hover {
+  border: 1px solid rgb(3, 92, 3);
+}
+
 .tasks,
 li,
 input {
   margin-right: 8px;
   font-weight: normal;
 }
+
 .completed {
-  color: #1d2527;
+  color: gray;
 }
 
-@media only screen and (max-width: 800px) {
+.tickComplete {
+  flex: 0 0 15px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #e3e6d6;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  outline: none;
+}
+
+.tickComplete > span {
+  font-size: 8px;
+  padding: 3px;
+}
+
+.tick {
+  border: 1px solid green;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #223237;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: auto;
+} 
+.modal-content > h2{
+color: #e3e6d6;
+padding: 10px 0;
+}
+
+.modal-content > textarea{
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.exit > button{
+  padding:2px 3px;
+  border-radius: 4px;
+  width: 50px;
+}
+
+.exit{
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  width: 100%;
+}
+
+.exit > button:hover{
+  background-color: #223237;
+  color: #e3e6d6;
+  transition: all .2s ease-in-out;
+}
+
+.close-modal {
+  color: #e3e6d6;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Responsive media queries */
+@media only screen and (max-width: 1200px) {
   .todos {
-    width: 80%;
+    width: 85%;
   }
 }
+
 @media only screen and (max-width: 370px) {
   .todos {
-    width: 93%;
+    width: 95%;
+  }
+ 
+}
+
+@media only screen and (max-width: 540px) {
+  .active {
+    flex-direction: column;
+    padding: 20px 2px;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .content {
+    padding: 1px 0;
+    gap: 8px;
+  }
+
+  .close {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 6px;
+    margin-top: 7px;
+    justify-content: flex-end;
+  }
+
+  .edit {
+    margin: unset;
+  }
+
+  .delete {
+    margin: unset;
+  }
+
+  .close > button {
+    margin: 0 3px;
   }
 }
